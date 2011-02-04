@@ -11,8 +11,8 @@ There are a few simple steps to follow to make your models orderable:
 
 1. `git clone git://github.com/kirelagin/django-orderedmodel.git orderedmodel`
 2. Add `orderedmodel` application to your project
-3. Derive your Model from `orderedmodel.models.OrderedModel`
-4. Derive your ModelAdmin from `orderedmodel.admin.OrderedModelAdmin`
+3. Derive your Model from `orderedmodel.OrderedModel`
+4. Derive your ModelAdmin from `orderedmodel.OrderedModelAdmin`
 5. Set modelClass variable in your ModelAdmin
 6. Add `reorder` field to yout ModelAdmin's `list_display`
 7. Enjoy!
@@ -30,7 +30,7 @@ You need an orderable model `TestModel`.
 **models.py**:
 
     from django.db import models
-    from orderedmodel.models import OrderedModel
+    from orderedmodel import OrderedModel
 
     class TestModel(OrderedModel):
       name = models.CharField(max_length=30)
@@ -38,7 +38,7 @@ You need an orderable model `TestModel`.
 **admin.py**:
 
     from django.contrib import admin
-    from orderedmodel.admin import OrderedModelAdmin
+    from orderedmodel import OrderedModelAdmin
 
     from testapp.models import TestModel
 

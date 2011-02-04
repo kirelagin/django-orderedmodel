@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
+from django.conf import settings
 from django.conf.urls.defaults import patterns
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
@@ -18,11 +19,11 @@ class OrderedModelAdmin(admin.ModelAdmin):
     return my_urls + super(OrderedModelAdmin, self).get_urls()
 
   def reorder(self, item):
-    button = '<a href="%s">-%s-</a>'
+    button = '<a href="{{0}}/move_{{1}}"><img src="{0}img/admin/arrow-{{1}}.gif" alt="{{1}}" /></a>'.format(settings.ADMIN_MEDIA_PREFIX)
 
     html = ''
-    html += button % ('%d/move_down/' % item.pk, '↓')
-    html += button % ('%d/move_up/' % item.pk, '↑')
+    html += button.format(item.pk, 'down')
+    html += '&nbsp;' + button.format(item.pk, 'up')
     return html
   reorder.allow_tags = True
 

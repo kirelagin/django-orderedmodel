@@ -1,4 +1,4 @@
-OrderedModel -- orderable models models for [Django](http://www.djangoproject.com/)
+OrderedModel -- orderable models for [Django](http://www.djangoproject.com/)
 ========================================================
 
 `OrderedModel` intends to help you create models which can be

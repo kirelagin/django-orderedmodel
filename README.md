@@ -1,15 +1,15 @@
-OrderedModel for [Django](http://www.djangoproject.com/)
+OrderedModel -- orderable models models for [Django](http://www.djangoproject.com/)
 ========================================================
 
-`OrderedModel` intends to help you with models which can be moved up\\down (or left\\right)
-in respect to each other.
+`OrderedModel` intends to help you create models which can be
+moved up\\down (or left\\right) with respect to each other.
 
 How to use it
 -------------
 
 There are a few simple steps to follow to make your models orderable:
 
-1. `git clone git://github.com/kirelagin/django-orderedmodel orderedmodel`
+1. `git clone git://github.com/kirelagin/django-orderedmodel.git orderedmodel`
 2. Add `orderedmodel` application to your project
 3. Derive your Model from `orderedmodel.models.OrderedModel`
 4. Derive your ModelAdmin from `orderedmodel.admin.OrderedModelAdmin`
@@ -24,8 +24,8 @@ unless you have changed default ordering in your model's Meta).
 Example
 -------
 
-Suppose you have a django app called _testapp_. You would like to create
-an orderable model `TestModel`.
+Suppose you have a django app called _testapp_.
+You need an orderable model `TestModel`.
 
 **models.py**:
 
@@ -51,7 +51,7 @@ an orderable model `TestModel`.
     admin.site.register(TestModel, TestModelAdmin)
 
 
-Here it goes! Now if you create several instances of your model
+Yep! Now if you create several instances of your model
 and look into admin site you'll see something like this:
 
 ![Admin screenshot](http://kirelagin.ru/~kirrun/orderedmodel/admin.png)

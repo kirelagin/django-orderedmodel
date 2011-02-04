@@ -4,7 +4,7 @@ OrderedModel -- orderable models models for [Django](http://www.djangoproject.co
 `OrderedModel` intends to help you create models which can be
 moved up\\down (or left\\right) with respect to each other.
 
-How to use it
+How to use
 -------------
 
 There are a few simple steps to follow to make your models orderable:

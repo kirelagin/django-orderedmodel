@@ -34,7 +34,7 @@ class OrderedModelAdmin(admin.ModelAdmin):
       except IndexError: # Last item
         pass
       else:
-        self.swap_items(item, next_item)
+        self.modelClass.swap(item, next_item)
     return HttpResponseRedirect('../../')
 
   def move_up(self, request, pk):
@@ -45,13 +45,6 @@ class OrderedModelAdmin(admin.ModelAdmin):
       except IndexError: # First item
         pass
       else:
-        self.swap_items(item, prev_item)
+        self.modelClass.swap(item, prev_item)
     return HttpResponseRedirect('../../')
 
-  def swap_items(self, item1, item2):
-    max_order = self.modelClass.objects.order_by('-order')[0].order
-    i2_prev, item2.order = item2.order, max_order + 1
-    item2.save()
-    item2.order, item1.order = item1.order, i2_prev
-    item1.save()
-    item2.save()

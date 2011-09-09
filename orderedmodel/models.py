@@ -13,7 +13,7 @@ class OrderedModel(models.Model):
     if not self.id:
       try:
         self.order = self.max_order() + 1
-      except:
+      except IndexError:
         self.order = 1 # 0 is a special index used in swap
     if self.order == 0 and not swapping:
       raise ValidationError("Can't set 'order' to 0")

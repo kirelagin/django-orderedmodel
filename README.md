@@ -9,12 +9,14 @@ How to use
 
 There are a few simple steps to follow to make your models orderable:
 
-1. `git clone git://github.com/kirelagin/django-orderedmodel.git orderedmodel`
-2. Add `orderedmodel` application to your project
-3. Derive your Model from `orderedmodel.OrderedModel`
-4. Derive your ModelAdmin from `orderedmodel.OrderedModelAdmin`
-5. Add `reorder` field to yout ModelAdmin's `list_display`
-6. Enjoy!
+1. `git clone git://github.com/kirelagin/django-orderedmodel.git`
+2. Copy (or, even better, symlink) `orderedmodel` directory to your
+   Django project
+3. (Optional) Add `'orderedmodel'` to `INSTALLED_APPS` in your `settings.py`
+4. Derive your Model from `orderedmodel.OrderedModel`
+5. Derive your ModelAdmin from `orderedmodel.OrderedModelAdmin`
+6. Add `reorder` field to yout ModelAdmin's `list_display`
+7. Enjoy!
 
 Now you can use `order_by('order')` in your query to get instances of your model
 in desired order (actually it is not neccessary to call `order_by` explicitly

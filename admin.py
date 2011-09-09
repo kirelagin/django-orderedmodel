@@ -29,23 +29,23 @@ class OrderedModelAdmin(admin.ModelAdmin):
 
   def move_down(self, request, pk):
     if self.has_change_permission(request):
-      item = get_object_or_404(self.modelClass, pk=pk)
+      item = get_object_or_404(self.model, pk=pk)
       try:
-        next_item = self.modelClass.objects.filter(order__gt=item.order).order_by('order')[0]
+        next_item = self.model.objects.filter(order__gt=item.order).order_by('order')[0]
       except IndexError: # Last item
         pass
       else:
-        self.modelClass.swap(item, next_item)
+        self.model.swap(item, next_item)
     return HttpResponseRedirect('../../')
 
   def move_up(self, request, pk):
     if self.has_change_permission(request):
-      item = get_object_or_404(self.modelClass, pk=pk)
+      item = get_object_or_404(self.model, pk=pk)
       try:
-        prev_item = self.modelClass.objects.filter(order__lt=item.order).order_by('-order')[0]
+        prev_item = self.model.objects.filter(order__lt=item.order).order_by('-order')[0]
       except IndexError: # First item
         pass
       else:
-        self.modelClass.swap(item, prev_item)
+        self.model.swap(item, prev_item)
     return HttpResponseRedirect('../../')
 

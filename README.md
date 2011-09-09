@@ -13,9 +13,8 @@ There are a few simple steps to follow to make your models orderable:
 2. Add `orderedmodel` application to your project
 3. Derive your Model from `orderedmodel.OrderedModel`
 4. Derive your ModelAdmin from `orderedmodel.OrderedModelAdmin`
-5. Set modelClass variable in your ModelAdmin
-6. Add `reorder` field to yout ModelAdmin's `list_display`
-7. Enjoy!
+5. Add `reorder` field to yout ModelAdmin's `list_display`
+6. Enjoy!
 
 Now you can use `order_by('order')` in your query to get instances of your model
 in desired order (actually it is not neccessary to call `order_by` explicitly
@@ -44,8 +43,6 @@ You need an orderable model `TestModel`.
 
 
     class TestModelAdmin(OrderedModelAdmin):
-      modelClass = TestModel
-
       list_display = ['name', 'reorder']
 
     admin.site.register(TestModel, TestModelAdmin)

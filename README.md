@@ -1,7 +1,7 @@
-OrderedModel -- orderable models for [Django](http://www.djangoproject.com/)
+`django-orderedmodel` -- orderable models for [Django](http://www.djangoproject.com/)
 ========================================================
 
-`OrderedModel` intends to help you create models which can be
+`django-orderedmodel` intends to help you create Django models which can be
 moved up\\down (or left\\right) with respect to each other.
 
 How to use
@@ -60,3 +60,11 @@ Yep! Now if you create several instances of your model
 and look into admin site you'll see something like this:
 
 ![Admin screenshot](http://kirelagin.ru/~kirrun/orderedmodel/admin.png)
+
+Django versions
+---------------
+
+Current version of `django-orderedmodel` requires *Django-1.4+*.
+
+See [branch `django-1.3`](https://github.com/kirelagin/django-orderedmodel/tree/django-1.3)
+for version compatible with *Django-1.3*.

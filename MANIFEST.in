@@ -1,0 +1,2 @@
+include MANIFEST.in *.md LICENSE *.sh
+recursive-include orderedmodel *.gif

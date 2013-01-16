@@ -1,2 +1,2 @@
-include MANIFEST.in *.md LICENSE *.sh
+include MANIFEST.in *.md LICENSE
 recursive-include orderedmodel *.gif

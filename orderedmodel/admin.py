@@ -43,7 +43,6 @@ class OrderedModelAdmin(admin.ModelAdmin):
       try:
         filter_column, filter_key = OrderedModelAdmin.filter_expr.search( key ).groups()
         filter_val = request.GET.get(key)
-        print "k:", filter_column, filter_key
       except:
         continue
 
@@ -71,7 +70,6 @@ class OrderedModelAdmin(admin.ModelAdmin):
       try:
         filter_column, filter_key = OrderedModelAdmin.filter_expr.search( key ).groups()
         filter_val = request.GET.get(key)
-        print "k:", filter_column, filter_key
       except:
         continue
 
@@ -87,6 +85,5 @@ class OrderedModelAdmin(admin.ModelAdmin):
         pass
       else:
         self.model.swap(item, prev_item)
-    #print dir(request.GET)
     return HttpResponseRedirect('../../?' + request.GET.urlencode())
 

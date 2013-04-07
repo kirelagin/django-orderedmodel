@@ -5,6 +5,7 @@ from django.conf import settings
 from django.conf.urls import patterns
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
+from django.contrib.admin.views.main import ChangeList
 import re
 
 
@@ -34,26 +35,16 @@ class OrderedModelAdmin(admin.ModelAdmin):
     return super(OrderedModelAdmin,self).changelist_view(request, extra_context=extra_context)
 
   def move_down(self, request, pk):
-    filter_column = None
-    filter_key = None
-    filter_val = None
-
-    # check if view is filtered
-    for key in request.GET:
-      try:
-        filter_column, filter_key = OrderedModelAdmin.filter_expr.search( key ).groups()
-        filter_val = request.GET.get(key)
-      except:
-        continue
+    cl = self.get_changelist(request)(request, self.model, self.list_display,
+                    self.list_display_links, self.list_filter,
+                    self.date_hierarchy, self.search_fields,
+                    self.list_select_related, self.list_per_page,
+                    self.list_max_show_all, self.list_editable, self )
 
     if self.has_change_permission(request):
       item = get_object_or_404(self.model, pk=pk)
       try:
-        query_args = {}
-        query_args['order__gt']=item.order
-        if ( filter_key != None and filter_column != None ):
-          query_args[filter_column]=filter_val
-        next_item = self.model.objects.filter(**query_args).order_by('order')[0]
+        next_item = cl.query_set.filter(order__gt=item.order).order_by('order')[0]
       except IndexError: # Last item
         pass
       else:
@@ -61,26 +52,16 @@ class OrderedModelAdmin(admin.ModelAdmin):
     return HttpResponseRedirect('../../?' + request.GET.urlencode())
 
   def move_up(self, request, pk):
-    filter_column = None
-    filter_key = None
-    filter_val = None
-
-    # check if view is filtered
-    for key in request.GET:
-      try:
-        filter_column, filter_key = OrderedModelAdmin.filter_expr.search( key ).groups()
-        filter_val = request.GET.get(key)
-      except:
-        continue
+    cl = self.get_changelist(request)(request, self.model, self.list_display,
+                    self.list_display_links, self.list_filter,
+                    self.date_hierarchy, self.search_fields,
+                    self.list_select_related, self.list_per_page,
+                    self.list_max_show_all, self.list_editable, self )
 
     if self.has_change_permission(request):
       item = get_object_or_404(self.model, pk=pk)
       try:
-        query_args = {}
-        query_args['order__lt']=item.order
-        if ( filter_key != None and filter_column != None ):
-          query_args[filter_column]=filter_val
-        prev_item = self.model.objects.filter(**query_args).order_by('-order')[0]
+        prev_item = cl.query_set.filter(order__lt=item.order).order_by('-order')[0]
       except IndexError: # First item
         pass
       else:

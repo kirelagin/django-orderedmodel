@@ -2,7 +2,7 @@
 ========================================================
 
 `django-orderedmodel` intends to help you create Django models which can be
-moved up\\down (or left\\right) with respect to each other.
+moved up/down (or left/right) with respect to each other.
 
 How to use
 -------------

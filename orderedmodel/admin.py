@@ -6,13 +6,11 @@ from django.conf.urls import patterns
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.admin.views.main import ChangeList
-import re
 
 
 class OrderedModelAdmin(admin.ModelAdmin):
   ordering = ['order']
   exclude = ['order']
-  filter_expr = re.compile("(.*)__(.*)__exact")
 
   def get_urls(self):
     my_urls = patterns('',

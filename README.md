@@ -59,7 +59,7 @@ admin.site.register(TestModel, TestModelAdmin)
 Yep! Now if you create several instances of your model
 and look into admin site you'll see something like this:
 
-![Admin screenshot](http://kirelagin.ru/~kirrun/orderedmodel/admin.png)
+![Admin screenshot](https://raw.githubusercontent.com/kirelagin/django-orderedmodel/gh-pages/admin.png)
 
 Django versions
 ---------------

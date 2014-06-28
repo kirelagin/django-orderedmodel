@@ -4,6 +4,7 @@
 `django-orderedmodel` intends to help you create Django models which can be
 moved up/down (or left/right) with respect to each other.
 
+
 How to use
 -------------
 
@@ -23,6 +24,7 @@ There are a few simple steps to follow to make your models orderable:
 Now you can use `order_by('order')` in your query to get instances of your model
 in desired order (actually it is not neccessary to call `order_by` explicitly
 unless you have changed default ordering in your model's Meta).
+
 
 Example
 -------
@@ -61,6 +63,7 @@ and look into admin site you'll see something like this:
 
 ![Admin screenshot](https://raw.githubusercontent.com/kirelagin/django-orderedmodel/gh-pages/admin.png)
 
+
 Django versions
 ---------------
 
@@ -71,3 +74,9 @@ for version compatible with *Django-1.3*.
 
 See [branch `django-1.4`](https://github.com/kirelagin/django-orderedmodel/tree/django-1.4)
 for version compatible with *Django-1.4*.
+
+
+Python 3
+--------
+
+Sure!

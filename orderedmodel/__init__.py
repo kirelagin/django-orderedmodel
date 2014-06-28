@@ -1,4 +1,4 @@
 __all__ = ['OrderedModel', 'OrderedModelAdmin']
 
-from models import OrderedModel
-from admin import OrderedModelAdmin
+from orderedmodel.models import OrderedModel
+from orderedmodel.admin import OrderedModelAdmin

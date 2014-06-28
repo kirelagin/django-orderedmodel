@@ -43,9 +43,9 @@ class OrderedModelAdmin(admin.ModelAdmin):
       item = get_object_or_404(self.model, pk=pk)
       try:
         if down:
-          other_item = cl.query_set.filter(order__gt=item.order).order_by('order')[0]
+          other_item = cl.queryset.filter(order__gt=item.order).order_by('order')[0]
         else:
-          other_item = cl.query_set.filter(order__lt=item.order).order_by('-order')[0]
+          other_item = cl.queryset.filter(order__lt=item.order).order_by('-order')[0]
       except IndexError: # First/last item
         pass
       else:

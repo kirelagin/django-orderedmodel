@@ -64,7 +64,10 @@ and look into admin site you'll see something like this:
 Django versions
 ---------------
 
-Current version of `django-orderedmodel` requires *Django-1.4+*.
+Current version of `django-orderedmodel` requires *Django-1.6+*.
 
 See [branch `django-1.3`](https://github.com/kirelagin/django-orderedmodel/tree/django-1.3)
 for version compatible with *Django-1.3*.
+
+See [branch `django-1.4`](https://github.com/kirelagin/django-orderedmodel/tree/django-1.4)
+for version compatible with *Django-1.4*.

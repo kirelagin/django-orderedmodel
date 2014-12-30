@@ -1,8 +1,8 @@
 `django-orderedmodel` -- orderable models for [Django](http://www.djangoproject.com/)
 ========================================================
 
-`django-orderedmodel` intends to help you create Django models which can be
-moved up/down (or left/right) with respect to each other.
+`django-orderedmodel` helps you create Django models that can be
+moved up/down with respect to each other.
 
 
 How to use

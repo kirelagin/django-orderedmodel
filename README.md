@@ -10,9 +10,7 @@ How to use
 
 There are a few simple steps to follow to make your models orderable:
 
-1. `git clone git://github.com/kirelagin/django-orderedmodel.git`.
-2. Copy (or, even better, symlink) `orderedmodel` directory to your
-   Django project.
+1. Install `django-orderedmodel` using your favourite way of installing Django packages.
 3. Add `'orderedmodel'` to `INSTALLED_APPS` in your `settings.py`.
 8. Ensure that your project is [using `django.contrib.staticfiles`](https://docs.djangoproject.com/en/dev/howto/static-files/)
    to serve static content (this is now required for compatibility with Django 1.4+).
